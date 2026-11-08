@@ -1,0 +1,5 @@
+.env
+pack.zip
+cache/
+outputs/
+__pycache__/
