@@ -14,7 +14,7 @@ def worker(jid, path, mode, limit):
     job = JOBS[jid]
     def log(m): job["log"].append(str(m))
     try:
-        r = run_show(path, mode, limit, out=str(WORK / jid / "out"), log=log, cache_dir=str(WORK / "cache"))
+        r = run_show(path, mode, limit, out=str(WORK / jid / "out"), log=log, cache_dir="cache")
         job.update(status="done", result=dict(summary=r["summary"], ordered=r["ordered"], top=r["top"]), outdir=r["outdir"])
     except Exception as e:
         job.update(status="error", error=str(e))
